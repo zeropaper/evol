@@ -1,0 +1,100 @@
+@import handcrafted-compass-mixins/_border-radius.sass
+
+!form_color_light_grey ||= #eee
+!form_color_dark_grey ||= #999
+!form_color_lighter_grey ||= #fff
+!form_color_darker_grey ||= #000
+!form_color ||= #6B380E
+!form_color_alt ||= #C9ECFF
+
+.form-textarea
+  :background-color = !form_color_lighter_grey
+  :border-color = !form_color_light_grey !form_color_light_grey !form_color
+  :border-style solid
+  :border-width 1px 1px 0.2em
+  :color = !form_color
+
+
+.form-text
+  :background-color = !form_color_lighter_grey
+  :border-color = !form_color_light_grey !form_color_light_grey !form_color
+  :border-style solid
+  :border-width 1px 1px 0.2em
+  :color = !form_color
+  :-moz-border-radius 2px
+  :-webkit-border-radius 2px
+  :border-radius 2px
+
+
+.form-submit, .form-button
+  /*
+    :background-color = !form_color_lighter_grey
+    :border-color = !form_color_light_grey !form_color_light_grey !form_color
+    :border-style solid
+    :color = !form_color
+  :color = !form_color
+  :font-weight bolder
+  :text-align center
+  :padding 0 3px
+  :margin 1px
+  :border 1px solid
+  :border-width 1px 1px 0.2em
+  :border-color = !form_color_lighter_grey !form_color !form_color !form_color_lighter_grey
+  +border-radius( "2px" )
+  :outline-radius 3px
+  :outline = !form_color_dark_grey "solid" 1px
+  :background-color = !form_color_alt
+  :cursor pointer
+
+  &:hover
+    :color = !form_color_lighter_grey
+    :border-color = !form_color_darker_grey !form_color_lighter_grey !form_color_lighter_grey !form_color_darker_grey
+    :background-color = !form_color
+
+
+.form-select
+  :background-color = !form_color_lighter_grey
+  :border-color = !form_color_light_grey !form_color_light_grey !form_color
+  :border-style solid
+  :border-width 1px 1px 0.2em
+  :color = !form_color
+  :-moz-border-radius 2px
+  :-webkit-border-radius 2px
+  :border-radius 2px
+
+
+.resizable-textarea
+  .form-textarea
+    :border-bottom-width 0
+    +border-radius-bottom-left( "2px" )
+    +border-radius-bottom-right( "2px" )
+
+  .grippie
+    :background-color = !form_color
+    :border-color = !form_color
+    :border-width 0 1px 1px 1px
+    +border-radius-bottom-left( "2px" )
+    +border-radius-bottom-right( "2px" )
+
+fieldset
+  +border-radius( "2px" )
+  :border 1px solid 
+  :border-color = !form_color
+  :margin 0.5em
+  :padding 0.5em
+
+
+textarea, .messages, #desctip
+  +border-radius( "2px" )
+
+
+option
+  &:checked, &[seleted=selected], &:focus
+    :background-color = !form_color_alt !important
+    :color = !form_color !important
+
+
+* option
+  &:checked, &[seleted=selected], &:focus
+    :background-color = !form_color_alt !important
+    :color = !form_color !important

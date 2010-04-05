@@ -1,0 +1,71 @@
+
+/* @author Valentin Vago
+  @description Style
+  
+@import _base.sass
+
+
+/* Global reset
++global-reset
+
+
+/* Grid system
++text
+.container-16
+  +grid-system(16)
+
+/* Sticky Footer
++sticky-footer( 180px, "#page", "#page-footer", "#footer" )
+
+
+/* Style
+  @import compass/utilities/links.sass
+  @import slate/style.sass
+  @import slate/_style.sass
+
+
+@import _messages.sass
+  
+@import _forms.sass
+
+  
+div
+  &.admin-panel
+    :padding 0
+
+    .body
+      :padding 0 !important
+
+  &.admin
+    .left
+      :width 50%
+      :margin-left 0
+      :margin-right 0
+
+    .right
+      :width 50%
+      :margin-left 0
+      :margin-right 0
+
+      .admin-panel
+        :margin-left 10px
+        
+
+
+
+
+
+
+
+
+/* this should come at the end
+.ui-datepicker-cover
+  :display none
+  :display/**/ block
+  :position absolute
+  :z-index -1
+  :filter mask()
+  :top -4px
+  :left -4px
+  :width 200px
+  :height 200px

@@ -1,0 +1,15 @@
+name = "Blackbook"
+description = "Theme for use on Facebook FBML canvas pages only (based on fb_fbml and Evol)."
+core = 6.x
+engine = phptemplate
+
+regions[header] = canvas header
+regions[preface_first] = canvas preface first
+regions[preface_middle] = canvas preface middle
+regions[preface_last] = canvas preface last
+regions[content_top] = content top
+regions[node_bottom] = node bottom
+regions[content_footer] = content footer
+regions[right] = canvas right
+regions[canvas_footer] = canvas footer
+regions[iframe_footer] = iframe footer

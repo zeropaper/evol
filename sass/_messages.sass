@@ -1,0 +1,25 @@
+@import handcrafted-compass-mixins/_border-radius.sass
+
+div
+  &.messages
+    :padding 9px
+    :margin 0px 0px 10px
+    :color #036
+    :background #bdf
+    :border 1px solid #ace
+    +border-radius( "2px" )
+
+  &.warning
+    :color #840
+    :background #fe6
+    :border-color #ed5
+
+  &.error
+    :color #fff
+    :background #e63
+    :border-color #d52
+
+  &.status
+    :color #360
+    :background #cf8
+    :border-color #be7

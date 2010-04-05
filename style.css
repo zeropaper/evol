@@ -1,0 +1,475 @@
+/* @author Valentin Vago
+ * @description Style */
+/* Global reset */
+/* line 6, ../../../../../../../var/lib/gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline; }
+
+/* line 17, ../../../../../../../var/lib/gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+*:focus {
+  outline: 0; }
+
+/* line 20, ../../../../../../../var/lib/gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+body {
+  line-height: 1;
+  color: #000;
+  background: #fff; }
+
+/* line 23, ../../../../../../../var/lib/gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+ol, ul {
+  list-style: none; }
+
+/* tables still need 'cellspacing="0"' in the markup */
+/* line 27, ../../../../../../../var/lib/gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle; }
+
+/* line 30, ../../../../../../../var/lib/gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+/* line 33, ../../../../../../../var/lib/gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+q, blockquote {
+  quotes: "" ""; }
+  /* line 101, ../../../../../../../var/lib/gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: ""; }
+
+/* line 36, ../../../../../../../var/lib/gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+a img {
+  border: none; }
+
+/* Grid system */
+/* line 4, ../../../../../../../var/lib/gems/1.8/gems/compass-960-plugin-0.9.11/sass/960/_text.sass */
+body {
+  font: 13px/1.5 Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif; }
+
+/* line 7, ../../../../../../../var/lib/gems/1.8/gems/compass-960-plugin-0.9.11/sass/960/_text.sass */
+a:focus {
+  outline: 1px dotted invert; }
+
+/* line 10, ../../../../../../../var/lib/gems/1.8/gems/compass-960-plugin-0.9.11/sass/960/_text.sass */
+hr {
+  border-color: #ccc;
+  border-style: solid;
+  border-width: 1px 0 0;
+  clear: both;
+  height: 0; }
+
+/* line 17, ../../../../../../../var/lib/gems/1.8/gems/compass-960-plugin-0.9.11/sass/960/_text.sass */
+h1 {
+  font-size: 25px; }
+
+/* line 20, ../../../../../../../var/lib/gems/1.8/gems/compass-960-plugin-0.9.11/sass/960/_text.sass */
+h2 {
+  font-size: 23px; }
+
+/* line 23, ../../../../../../../var/lib/gems/1.8/gems/compass-960-plugin-0.9.11/sass/960/_text.sass */
+h3 {
+  font-size: 21px; }
+
+/* line 26, ../../../../../../../var/lib/gems/1.8/gems/compass-960-plugin-0.9.11/sass/960/_text.sass */
+h4 {
+  font-size: 19px; }
+
+/* line 29, ../../../../../../../var/lib/gems/1.8/gems/compass-960-plugin-0.9.11/sass/960/_text.sass */
+h5 {
+  font-size: 17px; }
+
+/* line 32, ../../../../../../../var/lib/gems/1.8/gems/compass-960-plugin-0.9.11/sass/960/_text.sass */
+h6 {
+  font-size: 15px; }
+
+/* line 35, ../../../../../../../var/lib/gems/1.8/gems/compass-960-plugin-0.9.11/sass/960/_text.sass */
+ol {
+  list-style: decimal; }
+
+/* line 38, ../../../../../../../var/lib/gems/1.8/gems/compass-960-plugin-0.9.11/sass/960/_text.sass */
+ul {
+  list-style: square; }
+
+/* line 41, ../../../../../../../var/lib/gems/1.8/gems/compass-960-plugin-0.9.11/sass/960/_text.sass */
+li {
+  margin-left: 30px; }
+
+/* line 44, ../../../../../../../var/lib/gems/1.8/gems/compass-960-plugin-0.9.11/sass/960/_text.sass */
+p,
+dl,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+ul,
+pre,
+table,
+address,
+fieldset {
+  margin-bottom: 20px; }
+
+/* line 14, sass/style.sass */
+.container-16 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px; }
+  /* line 31, sass/_grid.sass */
+  .container-16 .grid-1, .container-16 .grid-2, .container-16 .grid-3, .container-16 .grid-4, .container-16 .grid-5, .container-16 .grid-6, .container-16 .grid-7, .container-16 .grid-8, .container-16 .grid-9, .container-16 .grid-10, .container-16 .grid-11, .container-16 .grid-12, .container-16 .grid-13, .container-16 .grid-14, .container-16 .grid-15, .container-16 .grid-16 {
+    display: inline;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px; }
+  /* line 34, sass/_grid.sass */
+  .container-16 .grid-1 {
+    width: 40px; }
+  /* line 34, sass/_grid.sass */
+  .container-16 .grid-2 {
+    width: 100px; }
+  /* line 34, sass/_grid.sass */
+  .container-16 .grid-3 {
+    width: 160px; }
+  /* line 34, sass/_grid.sass */
+  .container-16 .grid-4 {
+    width: 220px; }
+  /* line 34, sass/_grid.sass */
+  .container-16 .grid-5 {
+    width: 280px; }
+  /* line 34, sass/_grid.sass */
+  .container-16 .grid-6 {
+    width: 340px; }
+  /* line 34, sass/_grid.sass */
+  .container-16 .grid-7 {
+    width: 400px; }
+  /* line 34, sass/_grid.sass */
+  .container-16 .grid-8 {
+    width: 460px; }
+  /* line 34, sass/_grid.sass */
+  .container-16 .grid-9 {
+    width: 520px; }
+  /* line 34, sass/_grid.sass */
+  .container-16 .grid-10 {
+    width: 580px; }
+  /* line 34, sass/_grid.sass */
+  .container-16 .grid-11 {
+    width: 640px; }
+  /* line 34, sass/_grid.sass */
+  .container-16 .grid-12 {
+    width: 700px; }
+  /* line 34, sass/_grid.sass */
+  .container-16 .grid-13 {
+    width: 760px; }
+  /* line 34, sass/_grid.sass */
+  .container-16 .grid-14 {
+    width: 820px; }
+  /* line 34, sass/_grid.sass */
+  .container-16 .grid-15 {
+    width: 880px; }
+  /* line 34, sass/_grid.sass */
+  .container-16 .grid-16 {
+    width: 940px; }
+  /* line 42, sass/_grid.sass */
+  .container-16 .prefix-1 {
+    padding-left: 60px; }
+  /* line 42, sass/_grid.sass */
+  .container-16 .prefix-2 {
+    padding-left: 120px; }
+  /* line 42, sass/_grid.sass */
+  .container-16 .prefix-3 {
+    padding-left: 180px; }
+  /* line 42, sass/_grid.sass */
+  .container-16 .prefix-4 {
+    padding-left: 240px; }
+  /* line 42, sass/_grid.sass */
+  .container-16 .prefix-5 {
+    padding-left: 300px; }
+  /* line 42, sass/_grid.sass */
+  .container-16 .prefix-6 {
+    padding-left: 360px; }
+  /* line 42, sass/_grid.sass */
+  .container-16 .prefix-7 {
+    padding-left: 420px; }
+  /* line 42, sass/_grid.sass */
+  .container-16 .prefix-8 {
+    padding-left: 480px; }
+  /* line 42, sass/_grid.sass */
+  .container-16 .prefix-9 {
+    padding-left: 540px; }
+  /* line 42, sass/_grid.sass */
+  .container-16 .prefix-10 {
+    padding-left: 600px; }
+  /* line 42, sass/_grid.sass */
+  .container-16 .prefix-11 {
+    padding-left: 660px; }
+  /* line 42, sass/_grid.sass */
+  .container-16 .prefix-12 {
+    padding-left: 720px; }
+  /* line 42, sass/_grid.sass */
+  .container-16 .prefix-13 {
+    padding-left: 780px; }
+  /* line 42, sass/_grid.sass */
+  .container-16 .prefix-14 {
+    padding-left: 840px; }
+  /* line 42, sass/_grid.sass */
+  .container-16 .prefix-15 {
+    padding-left: 900px; }
+  /* line 50, sass/_grid.sass */
+  .container-16 .suffix-1 {
+    padding-right: 60px; }
+  /* line 50, sass/_grid.sass */
+  .container-16 .suffix-2 {
+    padding-right: 120px; }
+  /* line 50, sass/_grid.sass */
+  .container-16 .suffix-3 {
+    padding-right: 180px; }
+  /* line 50, sass/_grid.sass */
+  .container-16 .suffix-4 {
+    padding-right: 240px; }
+  /* line 50, sass/_grid.sass */
+  .container-16 .suffix-5 {
+    padding-right: 300px; }
+  /* line 50, sass/_grid.sass */
+  .container-16 .suffix-6 {
+    padding-right: 360px; }
+  /* line 50, sass/_grid.sass */
+  .container-16 .suffix-7 {
+    padding-right: 420px; }
+  /* line 50, sass/_grid.sass */
+  .container-16 .suffix-8 {
+    padding-right: 480px; }
+  /* line 50, sass/_grid.sass */
+  .container-16 .suffix-9 {
+    padding-right: 540px; }
+  /* line 50, sass/_grid.sass */
+  .container-16 .suffix-10 {
+    padding-right: 600px; }
+  /* line 50, sass/_grid.sass */
+  .container-16 .suffix-11 {
+    padding-right: 660px; }
+  /* line 50, sass/_grid.sass */
+  .container-16 .suffix-12 {
+    padding-right: 720px; }
+  /* line 50, sass/_grid.sass */
+  .container-16 .suffix-13 {
+    padding-right: 780px; }
+  /* line 50, sass/_grid.sass */
+  .container-16 .suffix-14 {
+    padding-right: 840px; }
+  /* line 50, sass/_grid.sass */
+  .container-16 .suffix-15 {
+    padding-right: 900px; }
+  /* line 54, sass/_grid.sass */
+  .container-16 .alpha {
+    margin-left: 0; }
+  /* line 56, sass/_grid.sass */
+  .container-16 .omega {
+    margin-right: 0; }
+
+/* Sticky Footer */
+/* line 7, ../../../../../../../var/lib/gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/layout/_sticky_footer.sass */
+html, body {
+  height: 100%; }
+
+/* line 9, ../../../../../../../var/lib/gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/layout/_sticky_footer.sass */
+#page {
+  clear: both;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin-bottom: -180px; }
+  /* line 15, ../../../../../../../var/lib/gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/layout/_sticky_footer.sass */
+  #page #page-footer {
+    height: 180px; }
+
+/* line 17, ../../../../../../../var/lib/gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/layout/_sticky_footer.sass */
+#footer {
+  clear: both;
+  position: relative;
+  height: 180px; }
+
+/* Style
+ * @import compass/utilities/links.sass
+ * @import slate/style.sass
+ * @import slate/_style.sass */
+/* line 4, sass/_messages.sass */
+div.messages {
+  padding: 9px;
+  margin: 0px 0px 10px;
+  color: #036;
+  background: #bdf;
+  border: 1px solid #ace;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px; }
+/* line 12, sass/_messages.sass */
+div.warning {
+  color: #840;
+  background: #fe6;
+  border-color: #ed5; }
+/* line 17, sass/_messages.sass */
+div.error {
+  color: #fff;
+  background: #e63;
+  border-color: #d52; }
+/* line 22, sass/_messages.sass */
+div.status {
+  color: #360;
+  background: #cf8;
+  border-color: #be7; }
+
+/* line 10, sass/_forms.sass */
+.form-textarea {
+  background-color: white;
+  border-color: #eeeeee #eeeeee #6b380e;
+  border-style: solid;
+  border-width: 1px 1px 0.2em;
+  color: #6b380e; }
+
+/* line 18, sass/_forms.sass */
+.form-text {
+  background-color: white;
+  border-color: #eeeeee #eeeeee #6b380e;
+  border-style: solid;
+  border-width: 1px 1px 0.2em;
+  color: #6b380e;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px; }
+
+/* line 29, sass/_forms.sass */
+.form-submit, .form-button {
+  /* :background-color = !form_color_lighter_grey
+   * :border-color = !form_color_light_grey !form_color_light_grey !form_color
+   * :border-style solid
+   * :color = !form_color */
+  color: #6b380e;
+  font-weight: bolder;
+  text-align: center;
+  padding: 0 3px;
+  margin: 1px;
+  border: 1px solid;
+  border-width: 1px 1px 0.2em;
+  border-color: white #6b380e #6b380e white;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  outline-radius: 3px;
+  outline: #999999 solid 1px;
+  background-color: #c9ecff;
+  cursor: pointer; }
+  /* line 49, sass/_forms.sass */
+  .form-submit:hover, .form-button:hover {
+    color: white;
+    border-color: black white white black;
+    background-color: #6b380e; }
+
+/* line 55, sass/_forms.sass */
+.form-select {
+  background-color: white;
+  border-color: #eeeeee #eeeeee #6b380e;
+  border-style: solid;
+  border-width: 1px 1px 0.2em;
+  color: #6b380e;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px; }
+
+/* line 67, sass/_forms.sass */
+.resizable-textarea .form-textarea {
+  border-bottom-width: 0;
+  border-bottom-left-radius: 2px;
+  -moz-border-radius-bottomleft: 2px;
+  -webkit-border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  -moz-border-radius-bottomright: 2px;
+  -webkit-border-bottom-right-radius: 2px; }
+/* line 72, sass/_forms.sass */
+.resizable-textarea .grippie {
+  background-color: #6b380e;
+  border-color: #6b380e;
+  border-width: 0 1px 1px 1px;
+  border-bottom-left-radius: 2px;
+  -moz-border-radius-bottomleft: 2px;
+  -webkit-border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  -moz-border-radius-bottomright: 2px;
+  -webkit-border-bottom-right-radius: 2px; }
+
+/* line 79, sass/_forms.sass */
+fieldset {
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border: 1px solid;
+  border-color: #6b380e;
+  margin: 0.5em;
+  padding: 0.5em; }
+
+/* line 87, sass/_forms.sass */
+textarea, .messages, #desctip {
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px; }
+
+/* line 92, sass/_forms.sass */
+option:checked, option[seleted=selected], option:focus {
+  background-color: #c9ecff !important;
+  color: #6b380e !important; }
+
+/* line 98, sass/_forms.sass */
+* option:checked, * option[seleted=selected], * option:focus {
+  background-color: #c9ecff !important;
+  color: #6b380e !important; }
+
+/* line 33, sass/style.sass */
+div.admin-panel {
+  padding: 0; }
+  /* line 36, sass/style.sass */
+  div.admin-panel .body {
+    padding: 0 !important; }
+/* line 40, sass/style.sass */
+div.admin .left {
+  width: 50%;
+  margin-left: 0;
+  margin-right: 0; }
+/* line 45, sass/style.sass */
+div.admin .right {
+  width: 50%;
+  margin-left: 0;
+  margin-right: 0; }
+  /* line 50, sass/style.sass */
+  div.admin .right .admin-panel {
+    margin-left: 10px; }
+
+/* this should come at the end */
+/* line 62, sass/style.sass */
+.ui-datepicker-cover {
+  display: none;
+  display/**/: block;
+  position: absolute;
+  z-index: -1;
+  filter: mask();
+  top: -4px;
+  left: -4px;
+  width: 200px;
+  height: 200px; }
