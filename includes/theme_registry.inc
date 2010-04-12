@@ -135,6 +135,15 @@ function _evol_theme(&$existing, $type, $theme, $path) {
       $existing[$hook]['theme path'] = $params['path'];
       $existing[$hook]['theme paths'][] = $params['path'];
       $existing[$hook]['preprocess functions'][] = $theme .'_preprocess_'. $hook;
+      if ($hook == 'page' && module_exists('panels_everywhere') && variable_get('panels_everywhere_site_template_enabled', FALSE)) {
+        if (!file_exists($params['path'] .'/panels-everywhere-page.tpl.php')) {
+          $existing['page']['path'] = drupal_get_path('module', 'panels_everywhere') . '/theme';
+          $existing['page']['template'] = 'page';
+        }
+        else {
+          $existing['page']['template'] = 'panels-everywhere-page';
+        }
+      }
       
 //      $hooks[$hook]['type'] = $params['theme'];
 //      $hooks[$hook]['preprocess functions'] = array_merge($existing[$hook]['preprocess functions'], array($theme .'_preprocess_'. $hook));

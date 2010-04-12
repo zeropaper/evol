@@ -27,8 +27,8 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 /* line 20, ../../../../../../../../var/lib/gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
 body {
   line-height: 1;
-  color: #000;
-  background: #fff; }
+  color: black;
+  background: white; }
 
 /* line 23, ../../../../../../../../var/lib/gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
 ol, ul {
@@ -68,7 +68,7 @@ a:focus {
 
 /* line 10, ../../../../../../../../var/lib/gems/1.8/gems/compass-960-plugin-0.9.11/sass/960/_text.sass */
 hr {
-  border-color: #ccc;
+  border-color: #cccccc;
   border-style: solid;
   border-width: 1px 0 0;
   clear: both;
@@ -128,57 +128,57 @@ address,
 fieldset {
   margin-bottom: 20px; }
 
-/* line 16, ../sass/happytheme/style.sass */
+/* line 19, ../sass/happytheme/style.sass */
 table {
   width: 100%; }
-  /* line 18, ../sass/happytheme/style.sass */
+  /* line 21, ../sass/happytheme/style.sass */
   table tr.even {
     background-color: #f7f7f7; }
-  /* line 20, ../sass/happytheme/style.sass */
+  /* line 23, ../sass/happytheme/style.sass */
   table tr.odd {
     background-color: #fafafa; }
-    /* line 22, ../sass/happytheme/style.sass */
+    /* line 25, ../sass/happytheme/style.sass */
     table tr.odd td {
       background: none; }
-  /* line 25, ../sass/happytheme/style.sass */
+  /* line 27, ../sass/happytheme/style.sass */
   table td {
-    padding: .1em; }
+    padding: 0.1em; }
 
-/* line 28, ../sass/happytheme/style.sass */
+/* line 30, ../sass/happytheme/style.sass */
 #page {
-  color: #666;
+  color: #666666;
   width: 90%;
   min-width: 960px;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto; }
-  /* line 36, ../sass/happytheme/style.sass */
+  /* line 37, ../sass/happytheme/style.sass */
   #page a, #page a:link, #page a:hover, #page a:visited {
     line-height: 1.3em;
     color: #5599dd;
     display: inline;
     display: inline-block;
-    padding: 0 .1em;
+    padding: 0 0.1em;
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     text-decoration: none; }
-    /* line 44, ../sass/happytheme/style.sass */
+    /* line 45, ../sass/happytheme/style.sass */
     #page a a:hover, #page a:link a:hover, #page a:hover a:hover, #page a:visited a:hover {
       text-decoration: underline; }
 
-/* line 47, ../sass/happytheme/style.sass */
+/* line 48, ../sass/happytheme/style.sass */
 #page-content, #sidebar-left {
   float: left;
   position: relative;
   display: inline;
   display: inline-block; }
 
-/* line 53, ../sass/happytheme/style.sass */
+/* line 54, ../sass/happytheme/style.sass */
 #page-content {
   width: 85%;
   float: right; }
 
-/* line 57, ../sass/happytheme/style.sass */
+/* line 58, ../sass/happytheme/style.sass */
 #sidebar-left {
   width: 15%; }

@@ -1,5 +1,9 @@
+#require 'compass'
 require 'compass-colors'
 require 'ninesixty'
+#http://github.com/imathis/fancy-buttons
+require 'fancy-buttons'
+
 # Require any additional compass plugins here.
 
 project_type = :stand_alone

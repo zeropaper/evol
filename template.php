@@ -48,7 +48,12 @@ if (is_null(theme_get_setting('show_grid'))) {
  */
 function evol_theme(&$existing, $type, $theme, $path) {
   evol_include('theme_registry');
-  return _evol_theme($existing, $type, $theme, $path);
+  $hooks = _evol_theme($existing, $type, $theme, $path);
+  
+  zdpm($existing['page']);
+  
+  
+  return $hooks;
 }
 
 /**
@@ -58,18 +63,18 @@ function evol_theme(&$existing, $type, $theme, $path) {
  *  An array (reference) containing the variables who will be made available in your .tpl.php files
  * @param string $hook
  */
-function evol_preprocess(&$vars, $hook) {
-  
-  global $theme_key, $theme_info;
-  static $loaded = array();
-  if (empty($loaded[$hook])) {
-    evol_include($hook);
-    evol_template($hook);
-    evol_include($hook, $theme_key);
-    evol_template($hook, $theme_key);
-    $loaded[$hook] = TRUE;
-  }
-}
+//function evol_preprocess(&$vars, $hook) {
+//  global $theme_key, $theme_info;
+//  zdpm($theme_key .' '. $hook);
+//  static $loaded = array();
+//  if (empty($loaded[$hook])) {
+//    evol_include($hook);
+//    evol_template($hook);
+//    evol_include($hook, $theme_key);
+//    evol_template($hook, $theme_key);
+//    $loaded[$hook] = TRUE;
+//  }
+//}
 
 /**
  * Contextually adds 960 Grid System classes.

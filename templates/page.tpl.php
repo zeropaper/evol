@@ -20,6 +20,9 @@
 <body class="<?php print $body_classes; ?>">
   <?php if ($admin) {print $admin;} ?>
   
+  
+  
+  
   <div id="page">
     <div id="page-grid" class="<?php if (isset($nst_grid_name)) { print $nst_grid_name; } ?> clear-block">
       <div id="page-inner" <?php if (isset($nst_grid_columns)){ print 'class="grid-'. $nst_grid_columns .'"'; } ?>>
