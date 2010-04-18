@@ -17,9 +17,11 @@
 <div class="evol-base" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
   <div class="evol-base-top" <?php if (!empty($css_id)) { print "id=\"$css_id-top\""; } ?>>
     <div class="inside"><?php print $content['top']; ?></div>
+    <div class="shadow"><!-- shadow --></div>
   </div>
 
   <div class="evol-base-middle" <?php if (!empty($css_id)) { print "id=\"$css_id-middle\""; } ?>>
+    <div class="hat"><!-- hat --></div>
     <div class="inside"><?php print $content['middle']; ?></div>
   </div>
   
