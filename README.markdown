@@ -29,8 +29,38 @@ Nice to have
 ============
 
 SASS & Compasss
+---------------
 
 SASS installation requires Ruby and root access (windows users... I don't know how you are calling your root users... sorry).
+
+
+
+Supported "features"
+====================
+
+Drupal modules
+--------------
+
+- jquery_update
+- facebook
+- ztools
+- panels_everywhere
+- cufon (in progress)
+- designkit (in progress)
+
+
+Non-Drupal specific
+-------------------
+
+...
+
+
+
+Planned "features"
+==================
+
+- Exportable theme registry
+- A set of ctools plugins for panels (content_types, layouts, styles, ...) and other modules
 
 
 ... More to come ...

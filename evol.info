@@ -24,7 +24,7 @@ features[] = primary_links
 regions[footer] = Footer
 
 ; Theme specific styles. Sub-themes could override this.
-stylesheets[all][] = style.css
+stylesheets[all][] = styles/style.css
 
 
 ; Look at the ninesixty_tools module for more information

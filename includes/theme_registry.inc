@@ -115,40 +115,62 @@ $hooks = array(
 dpm($hooks);</code>
  *
  */
-function _evol_theme(&$existing, $type, $theme, $path) {
-  $hooks = array();
-  
+function _evol_theme(&$registry, $type, $theme, $path) {
+  $new = array();
   file_scan_directory($path .'/templates', '.inc', array('.', '..', 'CVS', '.svn'), '_evol_search_functions');
   $overrides = (array)_evol_search_functions();
+  
   foreach ($overrides as $hook => $params) {
     
-    if (!isset($existing[$hook])) {
+    if (!isset($registry[$hook])) {
       $params['type'] = $type;
-      $hooks[$hook] = $params;
+      $new[$hook] = $params;
       
       
     }
     else {
-      $existing[$hook]['type'] = $type;
-      $existing[$hook]['path'] = $params['path'];
-      $existing[$hook]['file'] = $params['file'];
-      $existing[$hook]['theme path'] = $params['path'];
-      $existing[$hook]['theme paths'][] = $params['path'];
-      $existing[$hook]['preprocess functions'][] = $theme .'_preprocess_'. $hook;
-      if ($hook == 'page' && module_exists('panels_everywhere') && variable_get('panels_everywhere_site_template_enabled', FALSE)) {
-        if (!file_exists($params['path'] .'/panels-everywhere-page.tpl.php')) {
-          $existing['page']['path'] = drupal_get_path('module', 'panels_everywhere') . '/theme';
-          $existing['page']['template'] = 'page';
-        }
-        else {
-          $existing['page']['template'] = 'panels-everywhere-page';
-        }
-      }
       
-//      $hooks[$hook]['type'] = $params['theme'];
-//      $hooks[$hook]['preprocess functions'] = array_merge($existing[$hook]['preprocess functions'], array($theme .'_preprocess_'. $hook));
+      $registry[$hook]['type'] = $type;
+      $registry[$hook]['path'] = $path .'/templates';//$params['path'];
+      $registry[$hook]['file'] = $params['file'];
+      $registry[$hook]['include files'][] = $path .'/templates/'. $params['file'];
+      $registry[$hook]['theme path'] = $params['path'];
+      $registry[$hook]['theme paths'][] = $params['path'];
+      $registry[$hook]['preprocess functions'][] = $theme .'_preprocess_'. $hook;
+      
+//      $new[$hook]['type'] = $params['theme'];
+//      $new[$hook]['preprocess functions'] = array_merge($registry[$hook]['preprocess functions'], array($theme .'_preprocess_'. $hook));
     }
+    
   }
   
-  return $hooks;
+  
+  $registry['page']['path'] = drupal_get_path('theme', $theme) . '/templates';
+  
+  if (module_exists('panels_everywhere') && variable_get('panels_everywhere_site_template_enabled', FALSE)) {
+    if (!file_exists($params['path'] .'/panels-everywhere-page.tpl.php')) {
+      $registry['page']['path'] = drupal_get_path('module', 'panels_everywhere') . '/theme';
+      $registry['page']['template'] = 'page';
+    }
+    else {
+      $registry['page']['template'] = 'panels-everywhere-page';
+      $registry['page']['include files'][] = $path .'/templates/page.inc';
+    }
+    
+    $overrides['page']['arguments']['show_blocks'] = FALSE;
+    
+    
+    if (isset($overrides['page'])) {
+      if ($overrides['page']['path'] && !in_array($overrides['page']['path'], $registry['page']['theme paths'])) {
+        $registry['page']['theme paths'][] = $overrides['page']['path'];
+      }
+      
+      if ($key = array_search($theme .'_preprocess_page', $registry['page']['preprocess functions'])) {
+        unset($registry['page']['preprocess functions'][$key]);
+      }
+      $registry['page']['preprocess functions'][] = $theme .'_preprocess_page';
+    }
+  }
+  zdpm($registry['page']['preprocess functions']);
+  return $new;
 }
