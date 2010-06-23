@@ -35,6 +35,7 @@ if (is_null(theme_get_setting('show_grid'))) {
   theme_get_setting('', TRUE);
 }
 
+
 /**
  * Implementation of the hook_theme()
  * @param array $existing
@@ -46,14 +47,10 @@ if (is_null(theme_get_setting('show_grid'))) {
  * 
  * @see hook_theme()
  */
-function evol_theme(&$existing, $type, $theme, $path) {
+function evol_theme(&$registry, $type, $theme, $path) {
   evol_include('theme_registry');
-  $hooks = _evol_theme($existing, $type, $theme, $path);
-  
-  zdpm($existing['page']);
-  
-  
-  return $hooks;
+  $new = _evol_theme($registry, $type, $theme, $path);
+  return $new;
 }
 
 /**
@@ -65,9 +62,10 @@ function evol_theme(&$existing, $type, $theme, $path) {
  */
 //function evol_preprocess(&$vars, $hook) {
 //  global $theme_key, $theme_info;
-//  zdpm($theme_key .' '. $hook);
+//  
 //  static $loaded = array();
 //  if (empty($loaded[$hook])) {
+//    zdpm($hook .': '. $theme_key);
 //    evol_include($hook);
 //    evol_template($hook);
 //    evol_include($hook, $theme_key);
@@ -75,6 +73,9 @@ function evol_theme(&$existing, $type, $theme, $path) {
 //    $loaded[$hook] = TRUE;
 //  }
 //}
+
+
+
 
 /**
  * Contextually adds 960 Grid System classes.
@@ -114,6 +115,34 @@ function evol() {
   return $output;
 }
 
+function _evol_css_safe($string) {
+  return str_replace('_', '-', $string);
+//  return function_exists('views_css_safe') ? views_css_safe($string) : str_replace('_', '-', $string);
+}
+
+
+function _evol_add_template(&$vars, $hook) {
+  $template_hook = _evol_css_safe($hook);
+  $vars['template_files'][] = $template_hook;
+  
+  if (strpos($template_hook, 'views-view') === 0 && isset($vars['view'])) {
+    $vars['template_files'] = array();
+    $vars['template_files'][] = _evol_css_safe($template_hook .'--'. $vars['view']->name);
+    $vars['template_files'][] = _evol_css_safe($template_hook .'--'. $vars['view']->name .'--'. $vars['view']->display[$vars['view']->current_display]->display_plugin);
+    $vars['template_files'][] = _evol_css_safe($template_hook .'--'. $vars['view']->name .'--'. $vars['view']->current_display);
+    $vars['template_files'] = array_unique($vars['template_files']);
+  }
+  
+  if (isset($vars['account']) && $vars['account']->uid) {
+    $vars['template_files'][] = _evol_css_safe($template_hook .'--uid-'. $vars['account']->uid);
+  }
+  
+  if (isset($vars['node'])) {
+    $vars['template_files'][] = _evol_css_safe($template_hook .'-'. $vars['node']->type);
+    $vars['template_files'][] = _evol_css_safe($template_hook .'-nid-'. $vars['node']->nid);
+  }
+}
+
 function evol_include($hook, $theme = 'evol') {
   $path = ($theme == 'evol' ? dirname(__FILE__) : drupal_get_path('theme', $theme)) .'/includes';
   $filepath = $path .'/'. $hook .'.inc';
@@ -132,14 +161,26 @@ function evol_template($hook, $theme = 'evol') {
   }
 }
 
-function evol_add_js($hook, $scope = 'header', $defer = FALSE, $cache = TRUE, $preprocess = TRUE) {
-  $path = drupal_get_path('theme', 'evol') .'/scripts';
-  drupal_add_js($path .'/'. $hook .'.js', 'theme', $scope, $defer, $cache, $preprocess);
+//function evol_add_js($hook, $scope = 'header', $defer = FALSE, $cache = TRUE, $preprocess = TRUE) {
+//  $path = drupal_get_path('theme', 'evol') .'/scripts';
+//  drupal_add_js($path .'/'. $hook .'.js', 'theme', $scope, $defer, $cache, $preprocess);
+//}
+
+
+function evol_add_js($file, $module = 'evol', $dir = 'js') {
+  zdpm($file .' '. $theme .' '. $dir .' '. $media);
+  drupal_add_js(drupal_get_path('theme', $theme) . "/$dir/$file.js");
 }
 
 
-function evol_add_css($hook, $media = 'all', $preprocess = TRUE) {
-  $path = drupal_get_path('theme', 'evol') .'/styles';
+
+function evol_add_css($hook, $theme = 'evol', $dir = 'css', $media = 'all', $preprocess = TRUE) {
+  // ensure backward compatibility
+  if ($theme == 'evol') {
+    $dir = 'styles';
+  }
+  zdpm($hook .' '. $theme .' '. $dir .' '. $media);
+  $path = drupal_get_path('theme', $theme) .'/'. $dir;
   drupal_add_css($path .'/'. $hook .'.css', 'theme', $media, $preprocess);
 }
 
@@ -200,4 +241,31 @@ function evol_imagecache($presetname, $path, $alt = '', $title = '', $attributes
   $imagecache_url = imagecache_create_url($presetname, $path);
   
   return '<img src="'. $imagecache_url .'" alt="'. check_plain($alt) .'" title="'. check_plain($title) .'" '. $attributes .' />';
+}
+
+function evol_preprocess_admin_toolbar(&$vars) {
+  $vars['collapsed'] = TRUE;
+  foreach ($vars['tree'] as $depth => $menus) {
+    foreach ($menus as $href => $links) {
+      $class = ($depth > 0) ? 'collapsed' : '';
+      if ($depth > 0 && admin_in_active_trail($href)) {
+        $class = '';
+        $vars['collapsed'] = FALSE;
+      }
+      $id = str_replace('/', '-', $href);
+
+      // If we aren't on the top level menu, provide a way to get to the top level page.
+      if ($depth > 0 && !empty($links)) {
+        $links['view-all'] = array(
+          'title' => t('View all'),
+          'href' => $href,
+        );
+      }
+      // fix the HTML...
+      foreach ($links as &$link) {
+        $link['title'] = str_replace("<span class='icon'></span>", '<span class="icon"><!--  --></span>', $link['title']);
+      }
+      $vars["tree_{$depth}"][$id] = theme('links', $links, array('class' => "links clear-block $class", 'id' => "admin-toolbar-{$id}"));
+    }
+  }
 }

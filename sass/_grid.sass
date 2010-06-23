@@ -52,6 +52,23 @@ $ninesixty_columns: 12 !default
     .suffix-#{$n}
       +grid-suffix($n, $cols)
 
+=grid-push($n, $cols: $ninesixty_columns)
+  margin-left: $ninesixty_grid_width / $cols * $n
+  
+=grid-pushes($cols: $ninesixty_columns)
+  @for $n from 1 through $cols - 1
+    .push-#{$n}
+      +grid-suffix($n, $cols)
+      
+
+=grid-pull($n, $cols: $ninesixty_columns)
+  margin-right: 0-($ninesixty_grid_width / $cols * $n)
+  
+=grid-pulls($cols: $ninesixty_columns)
+  @for $n from 1 through $cols - 1
+    .pull-#{$n}
+      +grid-pull($n, $cols)
+
 =grid-children
   .alpha
     +alpha
@@ -63,4 +80,6 @@ $ninesixty_columns: 12 !default
   +grids($cols)
   +grid-prefixes($cols)
   +grid-suffixes($cols)
+  +grid-pushes($cols)
+  +grid-pulls($cols)
   +grid-children

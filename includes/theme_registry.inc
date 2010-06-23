@@ -25,11 +25,16 @@
 
 /**
  * Search for theme functions
- * At the moment, only "non-template" functions will be found
  */
-function _evol_search_functions($file = NULL) {
-  global $theme;
+function _evol_search_functions($file = NULL, $clear = FALSE) {
+  global $_theme_scan;
+  $theme = $_theme_scan;
+  
   static $files = array();
+  
+  if ($clear) {
+    $files = array();
+  }
   
   if ($file) {
     include $file;
@@ -39,7 +44,21 @@ function _evol_search_functions($file = NULL) {
       'path' => dirname($file),
     );
     
+    $base = array (
+      'arguments'             => array(),
+      'file'                  => basename($file),
+      'include files'         => array($file),
+      'path'                  => dirname($file),
+//      'pattern'               => 'pattern',
+//      'preprocess functions'  => 'preprocess functions',
+      'theme path'            => dirname($file),
+      'theme paths'           => array(dirname($file)),
+//      'type'                  => 'type'
+    );
+            
     $exp = "/function (theme|template|{$theme})(_preprocess|)_([^(]*)\((.*)\)[\\s]*{.*/";
+    $exp = "/function (theme|template|{$theme})(_preprocess|)_([^(]*)\((.*)\)[\\s]*{(.*)/";
+    
     
     $callbacks = array();
     if ($content = file_get_contents($file)) {
@@ -49,17 +68,30 @@ function _evol_search_functions($file = NULL) {
           if ($hook) {
             if ($callbacks[2][$i] != '_preprocess') {
               $new[$hook] = array(
-                'function'  => $theme .'_'. $hook,
+                'function'  => $callbacks[1][$i] .'_'. $hook,
                 'arguments' => _evol_search_functions_clean_args($callbacks[4][$i]),
               ) + $base;
             }
             else {
-              $new[$hook] = array(
+              $definition = array(
                 'template' => str_replace('_', '-', $hook),
-              ) + $base;
+              );
+              // in the case of a preprocess theming, the arguments might be defined as comments after the "{"
+              // example:
+              // function mytheme_preprocess_myhook() {//$arg1, $arg2
+              $args_string = trim(substr($callbacks[5][$i], 2));
+              $args = _evol_search_functions_clean_args($args_string);
+              if (count($args)) {
+//                zdpm($hook .' argument(s): '. implode(', ', array_keys($args)));
+                $definition['arguments'] = $args;
+              }
+              $new[$hook] = $definition + $base;
             }
           }
         }
+//        if ($theme != 'evol') {
+//          zdpm($new[$hook]);
+//        }
       }
     }
     
@@ -84,7 +116,7 @@ function _evol_search_functions_clean_args($args_string) {
     $arg = explode('$', $arg);
     $arg = array_map('trim', explode('=', $arg[1]));
     if ($arg[0]) {
-      $args[$arg[0]] = $arg[1] ? $arg[1] : NULL;
+      $args[$arg[0]] = isset($arg[1]) && $arg[1] ? $arg[1] : NULL;
     }
   }
   return $args;
@@ -116,61 +148,82 @@ dpm($hooks);</code>
  *
  */
 function _evol_theme(&$registry, $type, $theme, $path) {
-  $new = array();
+  global $_theme_scan;
+  $_theme_scan = $theme;
+  
+  // clears the $_theme_scan
+  _evol_search_functions(NULL, TRUE);
+  
+  // search the implementations
   file_scan_directory($path .'/templates', '.inc', array('.', '..', 'CVS', '.svn'), '_evol_search_functions');
   $overrides = (array)_evol_search_functions();
+    
+  $new = array();
   
   foreach ($overrides as $hook => $params) {
     
+    
+    $params['type'] = $type;
+    
+    // if the isn't found within the registry, it's considered as "new"
     if (!isset($registry[$hook])) {
-      $params['type'] = $type;
+      
       $new[$hook] = $params;
       
-      
     }
     else {
       
-      $registry[$hook]['type'] = $type;
-      $registry[$hook]['path'] = $path .'/templates';//$params['path'];
-      $registry[$hook]['file'] = $params['file'];
-      $registry[$hook]['include files'][] = $path .'/templates/'. $params['file'];
-      $registry[$hook]['theme path'] = $params['path'];
-      $registry[$hook]['theme paths'][] = $params['path'];
-      $registry[$hook]['preprocess functions'][] = $theme .'_preprocess_'. $hook;
+      $registry[$hook]['type'] = $params['type'];
+//      $registry[$hook]['path'] = $params['path'];
+//      $registry[$hook]['file'] = $params['file'];
+//      $registry[$hook]['theme path'] = $params['path'];
       
-//      $new[$hook]['type'] = $params['theme'];
-//      $new[$hook]['preprocess functions'] = array_merge($registry[$hook]['preprocess functions'], array($theme .'_preprocess_'. $hook));
+      _evol_add_unique_at_end('./'. $params['path'] .'/'. $params['file'], $registry[$hook]['include files']);
+      
+      _evol_add_unique_at_end($params['path'], $registry[$hook]['theme paths']);
+      
+      _evol_add_unique_at_end($theme .'_preprocess_'. $hook, $registry[$hook]['preprocess functions']);
     }
     
   }
+
   
+  // The following lines are aimed to make the themes playing nicely with
+  // panels_everywhere module
+  $page = &$registry['page'];
   
-  $registry['page']['path'] = drupal_get_path('theme', $theme) . '/templates';
+  $page['path'] = $path . '/templates';
+  
   
   if (module_exists('panels_everywhere') && variable_get('panels_everywhere_site_template_enabled', FALSE)) {
-    if (!file_exists($params['path'] .'/panels-everywhere-page.tpl.php')) {
-      $registry['page']['path'] = drupal_get_path('module', 'panels_everywhere') . '/theme';
-      $registry['page']['template'] = 'page';
+    if (!file_exists($page['path'] .'/panels-everywhere-page.tpl.php')) {
+      $page['path'] = drupal_get_path('module', 'panels_everywhere') . '/theme';
+      $page['template'] = 'page';
     }
     else {
-      $registry['page']['template'] = 'panels-everywhere-page';
-      $registry['page']['include files'][] = $path .'/templates/page.inc';
+      $page['template'] = 'panels-everywhere-page';
+      _evol_add_unique_at_end($path .'/templates/page.inc', $page['include files']);
     }
     
-    $overrides['page']['arguments']['show_blocks'] = FALSE;
+    // Blocks by default is something who should not happend (IMO)
+    // 
+    // $overrides['page']['arguments']['show_blocks'] = FALSE;
+    $page['arguments']['show_blocks'] = FALSE;
     
-    
-    if (isset($overrides['page'])) {
-      if ($overrides['page']['path'] && !in_array($overrides['page']['path'], $registry['page']['theme paths'])) {
-        $registry['page']['theme paths'][] = $overrides['page']['path'];
-      }
-      
-      if ($key = array_search($theme .'_preprocess_page', $registry['page']['preprocess functions'])) {
-        unset($registry['page']['preprocess functions'][$key]);
-      }
-      $registry['page']['preprocess functions'][] = $theme .'_preprocess_page';
-    }
+    _evol_add_unique_at_end($page['path'], $page['theme paths']);
+    _evol_add_unique_at_end($theme .'_preprocess_page', $page['preprocess functions']);
   }
-  zdpm($registry['page']['preprocess functions']);
+  
+  
+//  zdpm("\n--------\nFOUND:\n". implode("\n", array_keys($overrides)) ."\n--------\nNEW:\n". implode("\n", array_keys($new)));
   return $new;
+}
+
+function _evol_add_unique_at_end($value, &$array) {
+  $found = array_search($value, $array);
+  if ($found !== FALSE) {
+//    zdpm($value .' found at '. $found);
+    unset($array[$found]);
+  }
+  $array[] = $value;
 }

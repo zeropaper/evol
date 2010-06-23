@@ -1,14 +1,15 @@
 <?php
-function evol_settings_default() {
-  return array(
-    'show_grid' => 0,
-  );
-}
+//function evol_settings_default() {
+//  return array(
+//    'show_grid' => 0,
+//  );
+//}
 
 
 function _evol_page_style_settings_form($settings) {
   $form = array();
-  
+  zdpm($settings);
+  /*
   if (module_exists('filefield') || module_exists('text')) {
     $fields = content_fields();
     
@@ -70,6 +71,6 @@ function _evol_page_style_settings_form($settings) {
     }
     
   }
-  
+  */
   return $form;
 }

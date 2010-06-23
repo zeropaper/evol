@@ -7,25 +7,19 @@
   lang="<?php print $language->language ?>"
   dir="<?php print $language->dir ?>"
   <?php if($fb_enable) { print 'xmlns:fb="http://www.facebook.com/2008/fbml"'; } ?>>
-  
-  <!-- Evol theme by Valentin Vago zeropaper -->
-  
-  
+<!-- Evol for panels everywhere -->
 <head>
   <?php print $head; ?>
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
+  <?php print $designkit; ?>
   <?php print $scripts; ?>
   <script type="text/javascript"><?php /* Needed to avoid Flash of Unstyled Content in IE */ ?> </script>
 </head>
 <body class="<?php print $body_classes; ?>">
-  
-  
-  <!-- __________________________________________________________ -->
-  <!-- content --><?php print $content; ?><!-- /content -->
-  
-  
-  <!-- __________________________________________________________ -->
+  <?php print $content; ?>
+  <!-- /content -->
+  <!-- closure -->
   <?php print $closure;?>
 </body>
 </html>

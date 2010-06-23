@@ -1,68 +1,57 @@
-/* $Id: reset.css,v 1.1.2.1 2009/04/10 22:19:34 toddnienkerk Exp $ */
-
-/**
- * Eric Meyer's Reset CSS
- *
- * v1.0 | 20080212
- * http://meyerweb.com/eric/tools/css/reset/
- *
- * Changes to the original Reset CSS:
- *   - "outline" attributes have been commented out for accessibility reasons
- */
-
+/* Global reset */
+/* line 6, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, font, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
   margin: 0;
   padding: 0;
   border: 0;
-/* outline: 0; */
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
   font-size: 100%;
-  vertical-align: baseline;
-  background: transparent;
-}
+  font-family: inherit;
+  vertical-align: baseline; }
 
-/* Warning: this may add 1-2 pixels to bottom of page */
-/* See http://drupal.org/node/422006 */
+/* line 17, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+*:focus {
+  outline: 0; }
+
+/* line 20, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
 body {
   line-height: 1;
-}
+  color: black;
+  background: white; }
 
+/* line 23, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
 ol, ul {
-  list-style: none;
-}
+  list-style: none; }
 
-blockquote, q {
-  quotes: none;
-}
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-
-/* remember to define focus styles! 
-:focus {
-  outline: 0;
-} */
-
-/* remember to highlight inserts somehow! */
-ins {
-  text-decoration: none;
-}
-del {
-  text-decoration: line-through;
-}
-
-/* tables still need cellspacing="0" in the markup */
+/* tables still need 'cellspacing="0"' in the markup */
+/* line 27, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
 table {
-  border-collapse: collapse;
+  border-collapse: separate;
   border-spacing: 0;
-}
+  vertical-align: middle; }
+
+/* line 30, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+/* line 33, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+q, blockquote {
+  quotes: "" ""; }
+  /* line 101, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: ""; }
+
+/* line 36, ../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/utilities/general/_reset.sass */
+a img {
+  border: none; }

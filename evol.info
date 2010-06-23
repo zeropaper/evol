@@ -8,7 +8,7 @@ engine = phptemplate
 
 
 plugins[panels][layouts] = plugins/panels/layouts
-;plugins[panels][styles] = plugins/panels/styles
+plugins[panels][styles] = plugins/panels/styles
 plugins[ztools][theme_setting] = plugins/ztools/theme_setting
 
 ;features[] = logo
@@ -19,23 +19,38 @@ features[] = search
 ;features[] = favicon
 features[] = primary_links
 
+; Site logo
+designkit[image][logo][title] = "Site logo"
+designkit[image][logo][description] = "Header logo."
+designkit[image][logo][imagecache] = "imagecache_scale:220x80"
+
+
+; Background
+designkit[color][background_color][title] = "Background"
+designkit[color][background_color][description] = "Background color."
+designkit[color][background_color][default] = "#d0dcdc"
+
+; Foreground
+designkit[color][foreground_color][title] = "Foreground"
+designkit[color][foreground_color][description] = "Foreground color."
+designkit[color][foreground_color][default] = "#dd4422"
+
+; Header
+designkit[color][header_color][title] = "Header"
+designkit[color][header_color][description] = "Header color."
+designkit[color][header_color][default] = "#333333"
+
+; Color coding: green
+designkit[color][cc_green][title] = "Code: green"
+designkit[color][cc_green][description] = "Green color code."
+designkit[color][cc_green][default] = "#00dd33"
+
+; Color coding: blue
+designkit[color][cc_blue][title] = "Code: blue"
+designkit[color][cc_blue][description] = "Blue color code."
+designkit[color][cc_blue][default] = "#0033dd"
+
 
 ; Regions (all of them should be deactivated... is it even possible??)
 regions[footer] = Footer
 
-; Theme specific styles. Sub-themes could override this.
-stylesheets[all][] = styles/style.css
-
-
-; Look at the ninesixty_tools module for more information
-;panels_nsgs_layouts[evol1][title] = evol1
-;panels_nsgs_layouts[evol1][panels][first] = First
-;panels_nsgs_layouts[evol1][panels][second] = Second
-;panels_nsgs_layouts[evol1][panels][third] = Third
-;panels_nsgs_layouts[evol2][title] = evol2
-;panels_nsgs_layouts[evol2][panels][first] = First
-;panels_nsgs_layouts[evol2][panels][second] = Second
-
-;dependencies[] = ztools
-;dependencies[] = ctools
-;dependencies[] = ninesixty_tools

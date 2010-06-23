@@ -15,6 +15,9 @@
   <?php print $head; ?>
   <?php print $styles; ?>
   <?php print $scripts; ?>
+  
+  
+  <?php print $designkit; ?>
 </head>
 
 <body class="<?php print $body_classes; ?>">

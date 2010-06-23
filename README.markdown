@@ -47,7 +47,7 @@ Drupal modules
 - panels_everywhere
 - cufon (in progress)
 - designkit (in progress)
-
+- theme registry auto discovery
 
 Non-Drupal specific
 -------------------
@@ -59,8 +59,15 @@ Non-Drupal specific
 Planned "features"
 ==================
 
-- Exportable theme registry
+- Controlable and exportable theme registry, with a GUI...
+- Controlable and exportable CSS and JS inclusion and sorting, with a GUI...
 - A set of ctools plugins for panels (content_types, layouts, styles, ...) and other modules
+- Create a subset of the Drupal theming engine to be used for other CMS/Frameworks
 
 
 ... More to come ...
+
+Support the project!
+====================
+
+[![Flattr this](http://api.flattr.com/button/button-compact-static-100x17.png)](http://flattr.com/thing/1362/Zeropaper-on-GitHub)
