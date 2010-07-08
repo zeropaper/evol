@@ -1,20 +1,20 @@
 /* Sticky Footer */
-/* line 7, ../../../../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/layout/_sticky_footer.sass */
+/* line 10, ../../../../../../../../../../.gem/ruby/1.8/gems/compass-0.10.0/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
 html, body {
   height: 100%; }
 
-/* line 9, ../../../../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/layout/_sticky_footer.sass */
+/* line 12, ../../../../../../../../../../.gem/ruby/1.8/gems/compass-0.10.0/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
 .evol-base {
   clear: both;
   min-height: 100%;
   height: auto !important;
   height: 100%;
   margin-bottom: -180px; }
-  /* line 15, ../../../../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/layout/_sticky_footer.sass */
+  /* line 18, ../../../../../../../../../../.gem/ruby/1.8/gems/compass-0.10.0/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
   .evol-base .evol-base-pusher {
     height: 180px; }
 
-/* line 17, ../../../../../../../../../../../../../../Library/Ruby/Gems/1.8/gems/compass-0.10.0.rc1/frameworks/compass/stylesheets/compass/layout/_sticky_footer.sass */
+/* line 20, ../../../../../../../../../../.gem/ruby/1.8/gems/compass-0.10.0/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
 .evol-base-bottom {
   clear: both;
   position: relative;

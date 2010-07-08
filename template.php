@@ -9,9 +9,10 @@ if (is_null(theme_get_setting('show_grid'))) {
   evol_include('settings');
   // The default values for the theme variables. Make sure $defaults exactly
   // matches the $defaults in the theme-settings.php file.
-  if (!function_exists('evol_settings_default')) {
-    include_once drupal_get_path('theme', 'evol') .'/includes/settings.inc';
-  }
+//  if (!function_exists('evol_settings_default')) {
+////    include_once drupal_get_path('theme', 'evol') .'/includes/settings.inc';
+//    include_once './includes/settings.inc';
+//  }
   // Using function_exists() to prevent a possible bug if the theme is used as maintenance theme at install
   include_once dirname(__FILE__) .'/includes/settings.inc';
   $defaults = function_exists('evol_settings_default') ? evol_settings_default() : array();
@@ -195,12 +196,12 @@ function evol_add_css($hook, $theme = 'evol', $dir = 'css', $media = 'all', $pre
  * 
  * @see theme_image()
  */
-function evol_image($path, $alt = '', $title = '', $attributes = NULL) {
-  $attributes = drupal_attributes($attributes);
-  $url = (url($path) == $path) ? $path : (base_path() . $path);
-  
-  return '<img src="'. check_url($url) .'" alt="'. check_plain($alt) .'" title="'. check_plain($title) .'" '. drupal_attributes($attributes) .' />';
-}
+//function evol_image($path, $alt = '', $title = '', $attributes = NULL) {
+//  $attributes = drupal_attributes($attributes);
+//  $url = (url($path) == $path) ? $path : (base_path() . $path);
+//  
+//  return '<img src="'. check_url($url) .'" alt="'. check_plain($alt) .'" title="'. check_plain($title) .'" '. drupal_attributes($attributes) .' />';
+//}
 
 
 
@@ -245,27 +246,30 @@ function evol_imagecache($presetname, $path, $alt = '', $title = '', $attributes
 
 function evol_preprocess_admin_toolbar(&$vars) {
   $vars['collapsed'] = TRUE;
-  foreach ($vars['tree'] as $depth => $menus) {
-    foreach ($menus as $href => $links) {
-      $class = ($depth > 0) ? 'collapsed' : '';
-      if ($depth > 0 && admin_in_active_trail($href)) {
-        $class = '';
-        $vars['collapsed'] = FALSE;
+  // for backward compatibility
+  if (is_array($vars['tree'])) {
+    foreach ($vars['tree'] as $depth => $menus) {
+      foreach ($menus as $href => $links) {
+        $class = ($depth > 0) ? 'collapsed' : '';
+        if ($depth > 0 && admin_in_active_trail($href)) {
+          $class = '';
+          $vars['collapsed'] = FALSE;
+        }
+        $id = str_replace('/', '-', $href);
+  
+        // If we aren't on the top level menu, provide a way to get to the top level page.
+        if ($depth > 0 && !empty($links)) {
+          $links['view-all'] = array(
+            'title' => t('View all'),
+            'href' => $href,
+          );
+        }
+        // fix the HTML...
+        foreach ($links as &$link) {
+          $link['title'] = str_replace("<span class='icon'></span>", '<span class="icon"><!--  --></span>', $link['title']);
+        }
+        $vars["tree_{$depth}"][$id] = theme('links', $links, array('class' => "links clear-block $class", 'id' => "admin-toolbar-{$id}"));
       }
-      $id = str_replace('/', '-', $href);
-
-      // If we aren't on the top level menu, provide a way to get to the top level page.
-      if ($depth > 0 && !empty($links)) {
-        $links['view-all'] = array(
-          'title' => t('View all'),
-          'href' => $href,
-        );
-      }
-      // fix the HTML...
-      foreach ($links as &$link) {
-        $link['title'] = str_replace("<span class='icon'></span>", '<span class="icon"><!--  --></span>', $link['title']);
-      }
-      $vars["tree_{$depth}"][$id] = theme('links', $links, array('class' => "links clear-block $class", 'id' => "admin-toolbar-{$id}"));
     }
   }
 }

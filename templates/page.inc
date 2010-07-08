@@ -23,16 +23,40 @@ function evol_add_css_code($id = NULL, $code = NULL) {
  */
 function evol_preprocess_page(&$vars, $hook) {
   
-  
-  
-  // make a deep clean reset of the style by adding the reset stylesheet before all others
-  drupal_set_html_head('<link type="text/css" rel="stylesheet" media="all" href="'. base_path() . drupal_get_path('theme', 'evol') .'/styles/reset.css" />');
-  $vars['head'] = drupal_get_html_head();
-  
+//  $vars['designkit'] = theme('designkit');
+  if (function_exists('designkit_preprocess_page')) {
+    call_user_func_array('designkit_preprocess_page', $vars);
+  }
 //  zdpm(module_exists('jquery_update'), function_exists('jquery_update_preprocess_page'));
   if (module_exists('jquery_update')) {
     jquery_update_preprocess_page($vars);
   }
+  
+  $evol_styles_path = drupal_get_path('theme', 'evol') .'/styles';
+  $evol_styles = theme_get_setting('stylesheets');
+  
+  
+  $modules_css = &$vars['css']['all']['module'];
+  $additionals = array();
+  if ($evol_styles['reset.css']) {
+    $additionals[$evol_styles_path .'/reset.css'] = TRUE;
+  }
+  $modules_css = array_merge($additionals, $modules_css);
+  
+  
+  $themes_css = &$vars['css']['all']['theme'];
+  $additionals = array();
+  foreach ($evol_styles as $style => $check) {
+    if ($style != 'reset.css' && $style == $check) {
+      $additionals[$evol_styles_path .'/'. $check] = TRUE;
+    }
+  }
+  $themes_css = array_merge($additionals, $themes_css);
+  
+  $vars['styles'] = drupal_get_css($vars['css']);
+  
+  
+  
   
   if (isset($vars['admin']) && module_exists('panels_everywhere') && variable_get('panels_everywhere_site_template_enabled', FALSE)) {
     $vars['content'] = $vars['admin'] . $vars['content'];
@@ -44,7 +68,8 @@ function evol_preprocess_page(&$vars, $hook) {
     $vars['closure'] .= '<div id="FB_HiddenIFrameContainer" style="display:none; position:absolute; left:-100px; top:-100px; width:0px; height: 0px;"><!-- --></div>';
   }
   
-  $vars['designkit'] = theme('designkit');
+  
+  
   evol_body_classes($vars['body_classes'], $vars);
 }
 
