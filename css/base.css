@@ -1,0 +1,17 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/css\/base\.scss}line{font-family:\000031}}
+#admin-sidebar {
+  position: fixed;
+  padding-top: 50px;
+  height: 100%;
+  left: 0;
+  width: 120px;
+  color: #aaaaaa;
+  z-index: 9999998; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/css\/base\.scss}line{font-family:\0000310}}
+html #admin-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999999; }

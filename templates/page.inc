@@ -1,20 +1,16 @@
 <?php
 
-
+/**
+ * Add a piece of CSS code who will afterward processed
+ * within theme('designkit')
+ * @param string $id
+ * @param string $code
+ */
 function evol_add_css_code($id = NULL, $code = NULL) {
   static $static = array();
-  $dbg = debug_backtrace();
-//  zdpm($dbg[2]['args'][1] ."\n". $code);
   if (empty($id)) {
-//    $output = '';
-//    foreach ($static as $id => $code) {
-//      $output .= "\n/* $id */\n";
-//    }
     return implode("\n/*  */\n", $static);
   }
-//  if (!array_key_exists($id, $static)) {
-//    zdpm($id .': '. $code);
-//  }
   $static[$id] = $code;
 }
 
@@ -22,12 +18,10 @@ function evol_add_css_code($id = NULL, $code = NULL) {
  * Preprocessor for page.tpl.php template file.
  */
 function evol_preprocess_page(&$vars, $hook) {
-  
-//  $vars['designkit'] = theme('designkit');
   if (function_exists('designkit_preprocess_page')) {
     call_user_func_array('designkit_preprocess_page', $vars);
   }
-//  zdpm(module_exists('jquery_update'), function_exists('jquery_update_preprocess_page'));
+  
   if (module_exists('jquery_update')) {
     jquery_update_preprocess_page($vars);
   }
@@ -55,7 +49,7 @@ function evol_preprocess_page(&$vars, $hook) {
   
   $vars['styles'] = drupal_get_css($vars['css']);
   
-  
+  $vars['designkit'] = !empty($vars['designkit']) ? $vars['designkit'] : theme('designkit');
   
   
   if (isset($vars['admin']) && module_exists('panels_everywhere') && variable_get('panels_everywhere_site_template_enabled', FALSE)) {
@@ -67,8 +61,6 @@ function evol_preprocess_page(&$vars, $hook) {
   if ($vars['fb_enable']) {
     $vars['closure'] .= '<div id="FB_HiddenIFrameContainer" style="display:none; position:absolute; left:-100px; top:-100px; width:0px; height: 0px;"><!-- --></div>';
   }
-  
-  
   
   evol_body_classes($vars['body_classes'], $vars);
 }

@@ -1,0 +1,50 @@
+@mixin status-messages{
+  div {
+    &.messages {
+      padding: 9px;
+      margin: 10px;
+      color: #003366;
+      background: #bbddff;
+      border: 1px solid #003366;
+      @include border-radius(2px);
+      @include box-shadow(1px, 1px, 9px, -3px, #003366);
+    }
+    &.warning {
+      color: #884400;
+      background: #ffee66;
+      border-color: #884400;
+      @include box-shadow(1px, 1px, 9px, -3px, #884400);
+    }
+    &.error {
+      color: #772F2F;
+      background: #FFACAC;
+      border-color: #992F2F;
+      @include box-shadow(1px, 1px, 9px, -3px, #772F2F);
+    }
+    &.status {
+      color: #336600;
+      background: #ccff88;
+      border-color: #336600;
+      @include box-shadow(1px, 1px, 9px, -3px, #336600);
+    }
+  }
+  
+  span {
+    &.messages {
+      color: #003366;
+      background: #bbddff;
+    }
+    &.warning {
+      color: #884400;
+      background: #ffee66;
+    }
+    &.error {
+      color: #772F2F;
+      background: #FFACAC;
+    }
+    &.status {
+      color: #336600;
+      background: #ccff88;
+    }
+  }
+}

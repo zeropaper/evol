@@ -1,0 +1,158 @@
+/* @author Valentin Vago
+ * @description Style */
+/*
+@include font-face("Blooming Grove", font-files("bgrove.ttf", truetype, "bgrove.otf", opentype));
+*/
+@font-face {
+  font-family: "Mplus Regular";
+  src: local("☺"), url('../fonts/mplus-TESTFLIGHT-032/mplus-2c-regular.ttf') format('truetype'); }
+
+@font-face {
+  font-family: "Mplus Thin";
+  src: local("☺"), url('../fonts/mplus-TESTFLIGHT-032/mplus-2c-thin.ttf') format('truetype'); }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/css\/style\.scss}line{font-family:\0000315}}
+body {
+  font-size: 100%;
+  line-height: 1.25;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #848484;
+  font-family: "Mplus Regular"; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/css\/style\.scss}line{font-family:\0000325}}
+h1, h2, h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: "Mplus Thin"; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/css\/style\.scss}line{font-family:\0000331}}
+h1 {
+  font-size: 4.231em;
+  padding: 1.382em 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/css\/style\.scss}line{font-family:\0000336}}
+h2 {
+  font-size: 2.615em;
+  padding: 1.372em 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/css\/style\.scss}line{font-family:\0000341}}
+h3 {
+  font-size: 1.615em;
+  padding: 1.397em 0; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/css\/style\.scss}line{font-family:\0000346}}
+dd {
+  margin: 1.125em 1em 2em 2.5em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/css\/style\.scss}line{font-family:\0000350}}
+a {
+  color: #3f3f3f;
+  text-decoration: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/css\/style\.scss}line{font-family:\0000353}}
+  a:link {
+    text-decoration: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/css\/style\.scss}line{font-family:\0000356}}
+  a:hover {
+    text-decoration: underline; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/css\/style\.scss}line{font-family:\0000359}}
+  a:active, a.active {
+    color: #000;
+    text-decoration: underline; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/css\/style\.scss}line{font-family:\0000366}}
+#header-wrapper {
+  overflow: hidden;
+  padding: 1em; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/css\/style\.scss}line{font-family:\0000367}}
+  #header-wrapper #logo-title {
+    display: inline;
+    float: left; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/css\/style\.scss}line{font-family:\0000370}}
+  #header-wrapper #search-box {
+    display: inline;
+    float: right; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/css\/style\.scss}line{font-family:\0000377}}
+#footer-wrapper {
+  -moz-box-shadow: black 0px 9px 30px -9px inset;
+  -webkit-box-shadow: black 0px 9px 30px -9px inset;
+  -o-box-shadow: black 0px 9px 30px -9px inset;
+  box-shadow: black 0px 9px 30px -9px inset;
+  background-color: #cfcfcf; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/_messages\.scss}line{font-family:\000033}}
+div.messages {
+  padding: 9px;
+  margin: 10px;
+  color: #003366;
+  background: #bbddff;
+  border: 1px solid #003366;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -o-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: 1px 1px 9px -3px #003366;
+  -webkit-box-shadow: 1px 1px 9px -3px #003366;
+  -o-box-shadow: 1px 1px 9px -3px #003366;
+  box-shadow: 1px 1px 9px -3px #003366; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/_messages\.scss}line{font-family:\0000312}}
+div.warning {
+  color: #884400;
+  background: #ffee66;
+  border-color: #884400;
+  -moz-box-shadow: 1px 1px 9px -3px #884400;
+  -webkit-box-shadow: 1px 1px 9px -3px #884400;
+  -o-box-shadow: 1px 1px 9px -3px #884400;
+  box-shadow: 1px 1px 9px -3px #884400; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/_messages\.scss}line{font-family:\0000318}}
+div.error {
+  color: #772F2F;
+  background: #FFACAC;
+  border-color: #992F2F;
+  -moz-box-shadow: 1px 1px 9px -3px #772f2f;
+  -webkit-box-shadow: 1px 1px 9px -3px #772f2f;
+  -o-box-shadow: 1px 1px 9px -3px #772f2f;
+  box-shadow: 1px 1px 9px -3px #772f2f; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/_messages\.scss}line{font-family:\0000324}}
+div.status {
+  color: #336600;
+  background: #ccff88;
+  border-color: #336600;
+  -moz-box-shadow: 1px 1px 9px -3px #336600;
+  -webkit-box-shadow: 1px 1px 9px -3px #336600;
+  -o-box-shadow: 1px 1px 9px -3px #336600;
+  box-shadow: 1px 1px 9px -3px #336600; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/_messages\.scss}line{font-family:\0000333}}
+span.messages {
+  color: #003366;
+  background: #bbddff; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/_messages\.scss}line{font-family:\0000337}}
+span.warning {
+  color: #884400;
+  background: #ffee66; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/_messages\.scss}line{font-family:\0000341}}
+span.error {
+  color: #772F2F;
+  background: #FFACAC; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/_messages\.scss}line{font-family:\0000345}}
+span.status {
+  color: #336600;
+  background: #ccff88; }
+
+/* this should come at the end */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/css\/style\.scss}line{font-family:\0000385}}
+.ui-datepicker-cover {
+  display: none;
+  display/**/: block;
+  position: absolute;
+  z-index: -1;
+  filter: mask();
+  top: -4px;
+  left: -4px;
+  width: 200px;
+  height: 200px; }

@@ -1,0 +1,112 @@
+/* @author Valentin Vago
+ * @description Style */
+/* Global reset */
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/\.gem\/ruby\/1\.8\/gems\/compass-0\.10\.5\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000314}}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/\.gem\/ruby\/1\.8\/gems\/compass-0\.10\.5\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000317}}
+body {
+  line-height: 1;
+  color: black;
+  background: white; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/\.gem\/ruby\/1\.8\/gems\/compass-0\.10\.5\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000319}}
+ol, ul {
+  list-style: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/\.gem\/ruby\/1\.8\/gems\/compass-0\.10\.5\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000321}}
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  vertical-align: middle; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/\.gem\/ruby\/1\.8\/gems\/compass-0\.10\.5\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000323}}
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/\.gem\/ruby\/1\.8\/gems\/compass-0\.10\.5\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000325}}
+q, blockquote {
+  quotes: "" ""; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/\.gem\/ruby\/1\.8\/gems\/compass-0\.10\.5\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000396}}
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: ""; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/\.gem\/ruby\/1\.8\/gems\/compass-0\.10\.5\/frameworks\/compass\/stylesheets\/compass\/reset\/_utilities\.scss}line{font-family:\0000327}}
+a img {
+  border: none; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/subthemes\/happytheme\/style\.scss}line{font-family:\0000318}}
+table {
+  width: 100%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/subthemes\/happytheme\/style\.scss}line{font-family:\0000320}}
+  table tr.even {
+    background-color: #f7f7f7; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/subthemes\/happytheme\/style\.scss}line{font-family:\0000322}}
+  table tr.odd {
+    background-color: #fafafa; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/subthemes\/happytheme\/style\.scss}line{font-family:\0000324}}
+    table tr.odd td {
+      background: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/subthemes\/happytheme\/style\.scss}line{font-family:\0000326}}
+  table td {
+    padding: 0.1em; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/subthemes\/happytheme\/style\.scss}line{font-family:\0000329}}
+#page {
+  color: #666666;
+  width: 90%;
+  min-width: 960px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/subthemes\/happytheme\/style\.scss}line{font-family:\0000336}}
+  #page a, #page a:link, #page a:hover, #page a:visited {
+    line-height: 1.3em;
+    color: #5599dd;
+    display: inline;
+    display: inline-block;
+    padding: 0 0.1em;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    border-radius: 4px;
+    text-decoration: none; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/subthemes\/happytheme\/style\.scss}line{font-family:\0000344}}
+    #page a a:hover, #page a:link a:hover, #page a:hover a:hover, #page a:visited a:hover {
+      text-decoration: underline; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/subthemes\/happytheme\/style\.scss}line{font-family:\0000347}}
+#page-content, #sidebar-left {
+  float: left;
+  position: relative;
+  display: inline;
+  display: inline-block; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/subthemes\/happytheme\/style\.scss}line{font-family:\0000353}}
+#page-content {
+  width: 85%;
+  float: right; }
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/subthemes\/happytheme\/style\.scss}line{font-family:\0000357}}
+#sidebar-left {
+  width: 15%; }

@@ -1,0 +1,9 @@
+name = Happy Theme
+description = "Specialy designed for the Drupal API module"
+core = 6.x
+
+base theme = evol
+
+regions[left] = "Left sidebar"
+
+stylesheets[all][] = style.css

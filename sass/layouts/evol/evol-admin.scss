@@ -1,0 +1,13 @@
+
+@import "_base.scss";
+@import "evol.scss";
+
+.evol-panels-admin{
+  @include evol-layout-wrapper;
+  .evol-layout-wrapper{
+    #content-wrapper{
+      width:90%;
+      margin:0 auto;
+    }
+  }
+}

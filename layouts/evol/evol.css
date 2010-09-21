@@ -1,0 +1,26 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/layouts\/evol\/evol\.scss}line{font-family:\000036}}
+.evol-layout-wrapper #content-wrapper {
+  width: 960px;
+  margin: 0 auto;
+  padding: 0 0 2em 0;
+  overflow: hidden; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/layouts\/evol\/evol\.scss}line{font-family:\0000314}}
+.evol-layout-wrapper #sidebar-right,
+.evol-layout-wrapper #sidebar-left {
+  width: 25%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/layouts\/evol\/evol\.scss}line{font-family:\0000318}}
+.evol-layout-wrapper #sidebar-right {
+  display: inline;
+  float: right; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/layouts\/evol\/evol\.scss}line{font-family:\0000323}}
+.evol-layout-wrapper #content,
+.evol-layout-wrapper #sidebar-left {
+  display: inline;
+  float: left; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/layouts\/evol\/evol\.scss}line{font-family:\0000329}}
+.evol-layout-wrapper .sidebar-right #content,
+.evol-layout-wrapper .sidebar-left #content {
+  width: 75%; }
+@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/robert\/Sites\/reset\.loc\/profiles\/resetto\/themes\/evol\/sass\/layouts\/evol\/evol\.scss}line{font-family:\0000334}}
+.evol-layout-wrapper .sidebars #content {
+  width: 50%; }

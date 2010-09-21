@@ -1,0 +1,29 @@
+/* $Id: $ */
+
+
+div.evol div.panel-pane {
+  background: #FAFBF6 /*url('../images/linebox-background.png') repeat center*/;
+  border: 1px solid #aaa;
+  box-shadow: 2px 2px 6px #cecece;
+  padding: 10px;
+  -moz-box-shadow: 2px 2px 6px #cecece;
+  -webkit-box-shadow: 2px 2px 6px #cecece;
+}
+
+div.evol div.panel-pane:after {
+  clear: both;
+  content: ".";
+  display: block;
+  font-size: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+div.evol h2.pane-title {
+  background: #E2DFD0;
+  border: 1px solid #aaa;
+  color: #333;
+  font-size: 18px;    /* TODO: convert pixels to ems / percentage */
+  margin: -6px -6px 10px;
+  padding: 4px 10px;
+}

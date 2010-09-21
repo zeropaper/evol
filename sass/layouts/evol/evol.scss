@@ -1,0 +1,40 @@
+
+@import "_base.scss";
+
+@mixin evol-layout-wrapper {
+  .evol-layout-wrapper{
+    #content-wrapper{
+      width:960px;
+      margin:0 auto;
+      padding: 0 0 2em 0;
+      overflow: hidden;
+    }
+    
+    #sidebar-right,
+    #sidebar-left{
+      width: 25%;
+    }
+    
+    #sidebar-right{
+      @include float-right;
+    }
+    
+    #content,
+    #sidebar-left{
+      @include float-left;
+    }
+    
+    .sidebar-right,
+    .sidebar-left{
+      #content{
+        width: 75%;
+      }
+    }
+    
+    .sidebars #content{
+      width: 50%;
+    }
+  }
+}
+
+@include evol-layout-wrapper;

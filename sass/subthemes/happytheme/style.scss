@@ -1,0 +1,58 @@
+/* @author Valentin Vago
+ * @description Style */
+
+@import "_base.scss";
+
+/* Global reset */
+@include global-reset;
+
+
+$light_grey_bgk1: #f7f7f7;
+
+$light_grey_bgk2: lighten($light_grey_bgk1, 1);
+
+$link_color: #33bb55;
+
+$link_color: darken(#aaccee, 20);
+
+table {
+  width: 100%;
+  tr.even {
+    background-color: $light_grey_bgk1; }
+  tr.odd {
+    background-color: $light_grey_bgk2;
+    td {
+      background: none; } }
+  td {
+    padding: 0.1em; } }
+
+#page {
+  color: #666666;
+  width: 90%;
+  min-width: 960px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  a, a:link, a:hover, a:visited {
+    line-height: 1.3em;
+    color: $link_color;
+    display: inline;
+    display: inline-block;
+    padding: 0 0.1em;
+    @include border-radius(unquote(unquote("4px")));
+    text-decoration: none;
+    a:hover {
+      text-decoration: underline; } } }
+
+#page-content, #sidebar-left {
+  float: left;
+  position: relative;
+  display: inline;
+  display: inline-block; }
+
+#page-content {
+  width: 85%;
+  float: right; }
+
+#sidebar-left {
+  width: 15%; }

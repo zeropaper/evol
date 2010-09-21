@@ -1,0 +1,95 @@
+@import "handcrafted-compass-mixins/_border-radius.scss";
+
+$form_color_light_grey: #eeeeee !default;
+
+$form_color_dark_grey: #999999 !default;
+
+$form_color_lighter_grey: white !default;
+
+$form_color_darker_grey: black !default;
+
+$form_color: #6b380e !default;
+
+$form_color_alt: #c9ecff !default;
+
+.form-textarea {
+  background-color: $form_color_lighter_grey;
+  border-color: $form_color_light_grey $form_color_light_grey $form_color;
+  border-style: solid;
+  border-width: 1px 1px 0.2em;
+  color: $form_color; }
+
+.form-text {
+  background-color: $form_color_lighter_grey;
+  border-color: $form_color_light_grey $form_color_light_grey $form_color;
+  border-style: solid;
+  border-width: 1px 1px 0.2em;
+  color: $form_color;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px; }
+
+.form-submit, .form-button {
+  /* :background-color = !form_color_lighter_grey
+   * :border-color = !form_color_light_grey !form_color_light_grey !form_color
+   * :border-style solid
+   * :color = !form_color */
+  color: $form_color;
+  font-weight: bolder;
+  text-align: center;
+  padding: 0 3px;
+  margin: 1px;
+  border: 1px solid;
+  border-width: 1px 1px 0.2em;
+  border-color: $form_color_lighter_grey $form_color $form_color $form_color_lighter_grey;
+  @include border-radius(unquote(unquote("2px")));
+  outline-radius: 3px;
+  outline: $form_color_dark_grey solid 1px;
+  background-color: $form_color_alt;
+  cursor: pointer;
+  &:hover {
+    color: $form_color_lighter_grey;
+    border-color: $form_color_darker_grey $form_color_lighter_grey $form_color_lighter_grey $form_color_darker_grey;
+    background-color: $form_color; } }
+
+.form-select {
+  background-color: $form_color_lighter_grey;
+  border-color: $form_color_light_grey $form_color_light_grey $form_color;
+  border-style: solid;
+  border-width: 1px 1px 0.2em;
+  color: $form_color;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px; }
+
+.resizable-textarea {
+  .form-textarea {
+    border-bottom-width: 0;
+    @include border-radius-bottom-left(unquote(unquote("2px")));
+    @include border-radius-bottom-right(unquote(unquote("2px"))); }
+  .grippie {
+    background-color: $form_color;
+    border-color: $form_color;
+    border-width: 0 1px 1px 1px;
+    @include border-radius-bottom-left(unquote(unquote("2px")));
+    @include border-radius-bottom-right(unquote(unquote("2px"))); } }
+
+fieldset {
+  @include border-radius(unquote(unquote("2px")));
+  border: 1px solid;
+  border-color: $form_color;
+  margin: 0.5em;
+  padding: 0.5em; }
+
+textarea, .messages, #desctip {
+  @include border-radius(unquote(unquote("2px"))); }
+
+option {
+  &:checked, &[seleted=selected], &:focus {
+    background-color: $form_color_alt !important;
+    color: $form_color !important; } }
+
+* option {
+  &:checked, &[seleted=selected], &:focus {
+    background-color: $form_color_alt !important;
+    color: $form_color !important; } }
