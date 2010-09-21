@@ -16,4 +16,4 @@ output_style = :nested
 relative_assets = true
 # http://groups.google.com/group/compass-users/browse_thread/thread/417429db92a92305
 # sass_options = {:cache_location => "#{Compass.configuration.project_path}\tmp\sass-cache"}
-sass_options = {:cache_location => "/tmp/sass-cache"} 
+sass_options = {:cache_location => "/tmp/sass-cache", :debug_info => true} 

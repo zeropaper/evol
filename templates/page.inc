@@ -18,6 +18,36 @@ function evol_add_css_code($id = NULL, $code = NULL) {
  * Preprocessor for page.tpl.php template file.
  */
 function evol_preprocess_page(&$vars, $hook) {
+  // Prepare header
+  $site_fields = array();
+  if ($vars['site_name']) {
+    $site_fields[] = check_plain($vars['site_name']);
+  }
+  if ($vars['site_slogan']) {
+    $site_fields[] = check_plain($$vars['site_slogan']);
+  }
+  $vars['site_title'] = implode(' ', $site_fields);
+  if ($site_fields) {
+    $site_fields[0] = '<span>'. $site_fields[0] .'</span>';
+  }
+  $vars['site_html'] = implode(' ', $site_fields);
+
+  if (function_exists('ctools_menu_secondary_local_tasks')) {
+    $tabs = ctools_menu_secondary_local_tasks();
+  }
+  else {
+    $tabs = ctools_menu_secondary_local_tasks();
+  }
+  $vars['tabs2'] = '';
+  if ($tabs) {
+    $vars['tabs2'] = '<ul class="tabs secondary">' . $tabs . '</ul>';
+  }
+
+  // Hook into color.module
+  if (module_exists('color')) {
+    _color_page_alter($vars);
+  }
+  
   if (function_exists('designkit_preprocess_page')) {
     call_user_func_array('designkit_preprocess_page', $vars);
   }
@@ -28,6 +58,7 @@ function evol_preprocess_page(&$vars, $hook) {
   
   $evol_styles_path = drupal_get_path('theme', 'evol') .'/styles';
   $evol_styles = theme_get_setting('stylesheets');
+  $evol_styles = is_array($evol_styles) ? $evol_styles : array();
   
   
   $modules_css = &$vars['css']['all']['module'];

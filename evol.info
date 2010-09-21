@@ -6,10 +6,20 @@ version = VERSION
 core = 6.x
 engine = phptemplate
 
+stylesheets[all][] = css/style.css
+stylesheets[print][] = print.css
 
-plugins[panels][layouts] = plugins/panels/layouts
-plugins[panels][styles] = plugins/panels/styles
-plugins[ztools][theme_setting] = plugins/ztools/theme_setting
+plugins[panels][layouts] = layouts
+
+; We provide default page manager pages for our site template
+api[page_manager][pages_default][version] = 1
+api[page_manager][pages_default][path] = defaults
+
+
+;plugins[panels][styles] = styles
+
+;api[panels][styles][version] = 2
+;api[panels][styles][path] = defaults
 
 ;features[] = logo
 features[] = name

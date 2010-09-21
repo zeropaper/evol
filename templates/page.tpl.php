@@ -12,12 +12,15 @@
 
 <head>
   <title><?php print $head_title; ?></title>
-  <?php print $head; ?>
-  <?php print $styles; ?>
-  <?php print $scripts; ?>
   
+  <?php print $head; ?>
+  
+  <?php print $styles; ?>
   
   <?php print $designkit; ?>
+  
+  <?php print $scripts; ?>
+  
 </head>
 
 <body class="<?php print $body_classes; ?>">

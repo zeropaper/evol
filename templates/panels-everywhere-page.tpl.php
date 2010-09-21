@@ -9,12 +9,16 @@
   <?php if($fb_enable) { print 'xmlns:fb="http://www.facebook.com/2008/fbml"'; } ?>>
 <!-- Evol for panels everywhere -->
 <head>
-  <?php print $head; ?>
   <title><?php print $head_title; ?></title>
+  
+  <?php print $head; ?>
+  
   <?php print $styles; ?>
+  
   <?php print $designkit; ?>
+  
   <?php print $scripts; ?>
-  <script type="text/javascript"><?php /* Needed to avoid Flash of Unstyled Content in IE */ ?> </script>
+  
 </head>
 <body class="<?php print $body_classes; ?>">
   <?php print $content; ?>
